@@ -1,0 +1,296 @@
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, Georgia, sans-serif;
+	font-size: 12px;
+	text-align: center;
+	vertical-align: top;
+	background: #ffffff;
+	color: #000000;
+}
+body,h1,h2,h3,h4,h5,h6,blockquote,p,form {
+	margin: 0;
+	padding: 0;
+}
+h1 {
+	font-family: Georgia, sans-serif;
+	font-size: 29px;
+	padding: 0 0 10px 0;
+}
+
+
+a:link, a:visited {
+	text-decoration: underline;
+	color: #336699;
+}
+a:hover {
+	text-decoration: none;
+	color: #ff0000;
+}
+p {
+	padding: 10px 0 0 0;
+}
+
+#wrapper {
+	margin: 0 auto 0 auto;
+	width: 900px;
+	text-align: left;
+}
+
+/*--------------------------------------------------------------------------------------------*/
+#header {
+	float: left;
+	width: 100%;
+	height: 100px;
+	padding-top: 30px;
+	background-color: #eeeeee;
+	position: relative;
+	margin-bottom: 60px;
+}
+#header h1 {
+	
+}
+#header p {
+	margin-left: 650px;
+}
+#header #toolbar {
+	width: 900px;
+	height: 50px;
+	margin: 0 auto;
+	position: absolute;
+	left: 200px;
+	bottom: -50px;
+}
+#toolbar ul {
+	text-decoration: none;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	left: 10px;
+	bottom: 10px;
+}
+#toolbar ul li {
+	float: left;
+	list-style: none;
+	background-image: url(./pic/selected.png); 
+	width: 38px;
+	height: 41px;
+}
+#toolbar ul a {
+	display: block;
+}
+#toolbar #list a{
+	background: url(./pic/list.png) no-repeat center 10%;
+	width: 100%;
+	height: 100%;
+}
+#toolbar #list a:hover{
+	background: url(./pic/list.png) no-repeat center 87%;
+	cursor: pointer;
+}
+#toolbar #grid a{
+	background: url(./pic/grid.png) no-repeat center 10%;
+	width: 100%;
+	height: 100%;
+}
+#toolbar #grid a:hover{
+	background: url(./pic/grid.png) no-repeat center 87%;
+	cursor: pointer;
+}
+#toolbar form {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	height: 32px;
+	width: 190px;
+}
+#toolbar .field {
+	border-radius: 10px;
+	line-height: 20px;
+	width: 160px;
+	/*background: #F7F7F7 url(./pic/searchicon.png) no-repeat -5% center;*/
+	padding-left: 10px;
+	padding-right: 20px;
+	background-color: #F7F7F7;
+}
+#toolbar .submit {
+	border: none;
+	background: #F7F7F7 url(./pic/searchicon.png) no-repeat -5% center;
+	position: absolute;
+	right: 5px;
+	top: 4px;
+	height: 22px;
+	width: 26px;
+	border-radius: 10px;
+	padding: 0;
+	margin: 0;
+}
+#toolbar .submit:hover {
+	cursor: pointer;
+}
+input,button,select,textarea{outline:none}
+/*------------------------------------------------------------------------------------------------------*/
+#container {
+	float: left;
+	width: 620px;
+	padding-left: 20px;
+}
+.post{
+	padding: 10px 0 10px 0;
+	border-bottom: 1px solid #eeeeee;
+}
+.post h2 {
+	font-family: Georgia,sans-serif;
+	font-size: 22px;
+	margin: 10px 0 10px 0;
+}
+.entry {
+	line-height: 25px;
+}
+ul.postmetadata {
+	border-top: 1px solid #ccc;
+	margin: 10px 0 0 0;
+	padding-left: 250px;
+	margin-top: 30px;
+}
+.postmetadata li{
+	list-style: none;
+	display: inline;
+	margin-left: 10px;
+}
+
+
+
+.navigation {
+	padding: 10px 0 0 0;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 18px;
+}
+
+/*gird样式显示*/
+.postgrid {
+	width: 270px;
+	height: 180px;
+	border: 1px solid #eeeeee;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
+	overflow: hidden;
+}
+.postgrid h2 {
+	font-family: Georgia,sans-serif;
+	font-size: 22px;
+	margin: 10px 0 10px 0;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+.sidebar {
+	float: left;
+	width: 239px;
+	border: 1px solid #eeeeee;
+	margin: 0 0 0 10px;
+	display: inline; /*修正ie双页边距*/
+}
+.sidebar ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0 10px 0 10px;
+}
+.sidebar ul li{
+	padding: 10px 0 10px 0;
+}
+.sidebar ul li h2{
+	font-family: Georgia,sans-serif;
+	font-size: 14px;
+}
+.sidebar ul ul li {
+	padding: 0;
+	line-height: 24px;
+}
+table#wp-calendar {
+	width: 100%;
+}
+
+
+.footer {
+	clear: both;
+	float: left;
+	width: 900px;
+	padding: 10px 0 0 0;
+	margin-bottom: 40px;
+}
+.footer p {
+	margin: 18px 0 0 700px;
+}
+
+
+
+
+/*-------single页面评论样式---------------------------------------------------------*/
+#comments {}
+#comments .commentlist {
+	padding: 0;
+	margin: 0;
+}
+#comments .commentlist li {
+	list-style: none;
+	border-bottom: 1px solid #eeeeee;
+	margin: 20px 0;
+}
+
+.commentCon {
+	position: relative;
+}
+.commentCon img {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.commentCon .commentText {
+	margin-left: 60px;
+	padding-top: 20px;
+	min-height: 28px
+}
+.commentCon .commentText p {
+	display: inline;
+	line-height: 22px;
+}
+.reply {
+	position: relative;
+	margin: 10px 0;
+}
+.reply .commentInfo {
+}
+.reply .comment-reply-link {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+/*发表评论的框框及周边*/
+#respond {
+	
+}
+#respond h3 {
+	display: none;
+}
+#respond .comment-form-comment label {
+	display: none;
+}
+#respond .comment-form-comment textarea {
+	width: 100%;
+	height: 80px;
+}
+#respond .form-allowed-tags {
+	display: none;
+}
+#respond .form-submit #submit {
+	border: none;
+	width: 80px;
+	height: 25px;
+	margin-left: 560px;
+}
+#respond .form-submit #submit:hover {
+	cursor: pointer;
+	border: 1px solid gray;
+}
