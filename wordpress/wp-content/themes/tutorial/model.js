@@ -1,7 +1,7 @@
 ﻿window.onload = function(){
 	//绑定事件
 	bindEleEvent();
-	alert(1);
+	
 }
 
 function bindEleEvent(){
