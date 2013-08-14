@@ -11,7 +11,7 @@ function bindEleEvent(){
 		if(document.getElementsByClassName("post").length == 1){
 			return;
 		}
-		var target = getSrcEle();
+		var target = getSrcEle(event);
 		var type = target.parentNode.id;
 		if(type == "list"){
 			var posts = document.getElementsByClassName("postgrid"); //ie8以下不兼容
@@ -27,10 +27,86 @@ function bindEleEvent(){
 			}
 		}
 	});
+
+	//侧边滑出的定时器
+	var navTimer = [];
+	//绑定侧边navigator的鼠标mouseover事件
+	var navUl = document.getElementsByClassName("navigator")[0].getElementsByTagName("ul")[0];
+	bindEvent(navUl, "mouseover",function(event){
+		var target = getSrcEle(event);
+		var type = "";
+		if(target.nodeName == "A"){
+			var name = target.parentNode.className;
+			clearTimeout(navTimer[name]);
+			navShow(target);
+		}else if(target.nodeName == "LI"){
+			var name = target.className;
+			var link = target.getElementsByTagName("a")[0];
+			clearTimeout(navTimer[name]);
+			navShow(link);
+		}
+		
+	});
+
+	//绑定侧边navigator的鼠标mouseout事件
+	var navUl = document.getElementsByClassName("navigator")[0].getElementsByTagName("ul")[0];
+	bindEvent(navUl, "mouseout",function(event){
+		var target = getSrcEle(event);
+		var type = "";
+		if(target.nodeName == "LI"){
+			var name = target.className;
+			var link = target.getElementsByTagName("a")[0];
+			navTimer[name] = setTimeout(navHide(link),10);
+		}else if(target.nodeName == "A"){
+			var name = target.parentNode.className;
+			navTimer[name] = setTimeout(navHide(target),10);
+		}
+		
+	});
+
 }
 
 
-
+//侧边navigator滑走
+function navHide(link){
+	link.style.marginLeft = "-80px";
+	/*
+	var left = parseFloat(link.style.marginLeft);
+	if(left > -80){
+		newleft = left - 5;
+		link.style.marginLeft = newleft + "px";
+		console.log(link.style.marginLeft);
+		console.log(Date.parse(new Date()));
+		setTimeout(function(num){
+			return function(){
+				navShow(num);
+			}
+		}(link),20);
+	}else if(left == 0 || left > 0){
+		link.style.marginLeft = "0px";
+	}
+	*/
+}
+//侧边navigator滑入
+function navShow(link){
+	//link.style.marginLeft = "0px";
+	
+	var left = parseFloat(link.style.marginLeft);
+	if(left < 0){
+		newleft = left + 4;
+		link.style.marginLeft = newleft + "px";
+		//console.log(link.style.marginLeft);
+		//console.log(Date.parse(new Date()));
+		setTimeout(function(num){
+			return function(){
+				navShow(num);
+			}
+		}(link),20);
+	}else if(left == 0 || left > 0){
+		link.style.marginLeft = "0px";
+	}
+	
+}
 
 
 
@@ -45,7 +121,7 @@ function bindEvent(node, type, handler){
 	}
 }
 //获取产生事件的对象，兼容ie
-function getSrcEle(){
+function getSrcEle(event){
 	var ele;
 	var srcEle;
 	if(event){
@@ -56,4 +132,12 @@ function getSrcEle(){
 		srcEle = ele.srcElement;
 	}
 	return srcEle;
+}
+//阻止冒泡
+function stopBubble(event){
+	if(event.stopPropagation){
+		event.stopPropagation();
+	}else if(window.event.cancelBubble){
+		window.event.cancelBubble = true;
+	}
 }
